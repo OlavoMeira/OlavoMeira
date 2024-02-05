@@ -1,6 +1,6 @@
 <h2 align="left">Olá meu nome é Olavo seja bem-vindo ao meu perfil profissional 👋....</h2>
 
-###
+### Information
 
 <div align="center">
   <img src="https://github-readme-stats.vercel.app/api?username=OlavoMeira&hide_title=false&hide_rank=false&show_icons=true&include_all_commits=true&count_private=true&disable_animations=false&theme=dracula&locale=en&hide_border=false" height="150" alt="stats graph"  />
@@ -11,7 +11,7 @@
 
 <img align="right" height="150" src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExZXViMXNrNGxjZWpueXN1NHFsenF0aTBhaG9jcnk4c2RlOWltcGVqciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/kLe9PygrSqB4oO4tYV/giphy.gif"  />
 
-###
+### Skills
 
 <div align="left">
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" height="30" alt="javascript logo"  />
@@ -21,7 +21,7 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" height="30" alt="css3 logo"  />
 </div>
 
-###
+### Contacts
 
 <div align="left">
   <a href="mailto:olavomeiradeveloper@gmail.comProfile image olavomeiradeveloper@gmail.com" target="_blank">
