@@ -32,7 +32,7 @@ jobs:
 
       - name: Push new graph to output branch
         # Usaremos uma Action mais recente e estável para fazer o push
-        uses: ad-m/github-push-action@main
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: output
