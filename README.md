@@ -55,7 +55,6 @@
 <br clear="both">
 
 ---
-## 🎮 Pacman Contribution Graph
 
 <div align="center">
   <picture>
