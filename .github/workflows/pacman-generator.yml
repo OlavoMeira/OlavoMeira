@@ -9,30 +9,16 @@ jobs:
   build:
     runs-on: ubuntu-latest
     
-    # Removendo 'permissions' pois o PAT tem autoridade total
-    
     steps:
-      - name: Checkout Repository
+      - name: Checkout Repository (using PAT)
         uses: actions/checkout@v4
         with:
-          # Usamos o PAT para o checkout também, para garantir o push.
           token: ${{ secrets.PACMAN_TOKEN }} 
-          ref: main
           
-      - name: Generate Pacman Contribution Graph
-        # A Action de geração ainda usa o GITHUB_TOKEN
+      - name: Generate Pacman Contribution Graph and Push to 'output' Branch (using PAT)
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: OlavoMeira 
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          
-      # PASSO CRÍTICO: Push usando o PAT
-      - name: Push new graph to main branch
-        uses: ad-m/github-push-action@master 
-        with:
-          # AQUI USAMOS O PAT, que tem a permissão de escrita
+          # PASSAMOS O PAT AQUI PARA O PUSH!
           github_token: ${{ secrets.PACMAN_TOKEN }} 
-          branch: main 
-          force: true 
-          # O arquivo gerado é pacman-graph.svg
-          commit_message: "feat: Atualiza Pac-Man contribution graph"
+          output_branch: output
