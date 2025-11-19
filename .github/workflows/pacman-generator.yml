@@ -1,0 +1,40 @@
+name: Generate Pacman Contribution Graph
+
+on:
+  schedule:
+    # Roda a cada 1 hora para manter o gráfico atualizado
+    - cron: '0 * * * *'
+  # Permite rodar manualmente através da aba 'Actions'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          # Isso garante que a Action possa fazer checkout de todas as branches, incluindo a de saída
+          fetch-depth: 0 
+          
+      - name: Generate Pacman Contribution Graph
+        # Usa a Action de terceiros para gerar o gráfico
+        uses: abozanona/pacman-contribution-graph@main
+        with:
+          # Token padrão que o GitHub fornece para a Action acessar a API
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          # O seu nome de usuário
+          user_id: OlavoMeira 
+          # A branch onde o SVG será salvo. Deve ser a mesma que está no seu README!
+          output_branch: output 
+          # Configurações de tema para Dark Mode e Light Mode
+          theme_dark: dracula
+          theme_light: default
+
+      - name: Push new graph to output branch
+        # Faz o push do SVG gerado para a branch 'output'
+        uses: cpina/github-push-action@main
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: output
+          force: true
+          commit_message: "chore: update pacman contribution graph"
