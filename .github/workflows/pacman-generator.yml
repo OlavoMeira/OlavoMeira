@@ -31,7 +31,6 @@ jobs:
           theme_light: default
 
       - name: Push new graph to output branch
-        # Faz o push do SVG gerado para a branch 'output'
         uses: cpina/github-push-action@main
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
