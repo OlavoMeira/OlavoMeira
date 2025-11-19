@@ -2,36 +2,34 @@ name: Generate Pacman Contribution Graph
 
 on:
   schedule:
-    # Roda a cada 4 horas para manter o gráfico atualizado
+    # Roda a cada 4 horas
     - cron: '0 */4 * * *'
-  # Permite rodar manualmente através da aba 'Actions'
+  # Permite rodar manualmente
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     
-    # Adiciona permissões de escrita (WRITE) ao GITHUB_TOKEN padrão
+    # Adiciona explicitamente permissão de escrita (WRITE) ao GITHUB_TOKEN
     permissions:
       contents: write
       
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
-          # Isso é necessário para que a Action possa acessar a branch de saída
+          # Necessário para que a Action possa acessar a branch de saída
           fetch-depth: 0 
           
       - name: Generate Pacman Contribution Graph
-        # Usa a Action de terceiros para gerar o gráfico
+        # Usando a Action que você especificou
         uses: abozanona/pacman-contribution-graph@main
         with:
-          # Usamos o GITHUB_TOKEN padrão com permissões de 'write' acima
+          # A Action que você está usando parece usar 'github_user_name'
+          github_user_name: OlavoMeira 
+          # Usamos o GITHUB_TOKEN padrão com permissões de 'write'
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          user_id: OlavoMeira 
-          # A branch onde o SVG será salvo.
-          output_branch: output 
-          theme_dark: dracula
-          theme_light: default
-
-      # Não precisamos de um passo de push separado.
+          
       # A Action 'abozanona/pacman-contribution-graph' faz o push internamente.
+      # Não precisamos de um passo de push separado.
