@@ -31,9 +31,9 @@ jobs:
           theme_light: default
 
       - name: Push new graph to output branch
-        uses: cpina/github-push-action@main
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: output
           force: true
-          commit_message: "chore: update pacman contribution graph"
+          commit: true
