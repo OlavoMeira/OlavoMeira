@@ -13,12 +13,23 @@ jobs:
       - name: Checkout Repository (using PAT)
         uses: actions/checkout@v4
         with:
+          # Usamos o PAT para garantir que a Action possa manipular branches
           token: ${{ secrets.PACMAN_TOKEN }} 
           
-      - name: Generate Pacman Contribution Graph and Push to 'output' Branch (using PAT)
+      - name: Generate Pacman Contribution Graph (Gera na pasta dist)
         uses: abozanona/pacman-contribution-graph@main
         with:
           github_user_name: OlavoMeira 
-          # PASSAMOS O PAT AQUI PARA O PUSH!
+          # O token aqui é usado apenas para buscar dados, mas o PAT funciona
           github_token: ${{ secrets.PACMAN_TOKEN }} 
-          output_branch: output
+          # REMOVEMOS output_branch para evitar o erro
+
+      - name: Push new graph files to 'output' branch
+        # Usamos uma Action de push robusta para mover os arquivos da pasta 'dist'
+        uses: crazy-max/ghaction-github-pages@v4
+        with:
+          target_branch: output # O destino final
+          build_dir: dist # Onde a Action do Pac-Man salvou os arquivos
+        env:
+          # Usamos o PAT para garantir que o push funcione
+          GITHUB_TOKEN: ${{ secrets.PACMAN_TOKEN }}
