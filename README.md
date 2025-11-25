@@ -1,5 +1,5 @@
 # 💫 About Me:
-🔭 I’m currently working on<br>         Project for a web platform for internal communication between departments.<br><br>👯 I’m looking to collaborate on<br>         I currently have no projects for external collaborators.<br><br>🤝 I’m looking for help with<br>         I don't need it at the moment...<br><br>🌱 I’m currently learning<br>         Veu e js, front-end<br>         Nest e Prisma, Back-end
+🔭 I’m currently working on<br>         Project for a web platform for internal communication between departments.<br><br>👯 I’m looking to collaborate on<br>         I currently have no projects for external collaborators. <!-- <br><br>  🤝 I’m looking for help with<br>         I don't need it at the moment... --> <br><br>🌱 I’m currently learning<br>         Veu e js, front-end<br>         Nest e Prisma, Back-end
 
 
 ## 🌐 Socials:
